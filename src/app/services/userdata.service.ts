@@ -16,6 +16,7 @@ export class UserdataService {
     }
 
     public get currentUserValue(): User {
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         return this.currentUserSubject.value;
     }
     
