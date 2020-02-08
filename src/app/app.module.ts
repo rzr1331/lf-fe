@@ -6,10 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { DisplayPageComponent } from './display-page/display-page.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   imports: [
@@ -20,10 +20,10 @@ import { DisplayPageComponent } from './display-page/display-page.component';
   ],
   declarations: [
     AppComponent,
-    TopBarComponent,
     HomePageComponent,
     LoginPageComponent,
-    DisplayPageComponent
+    DisplayPageComponent,
+    AlertComponent
   ],
   bootstrap: [ AppComponent ]
 })

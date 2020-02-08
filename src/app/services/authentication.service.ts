@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -29,7 +29,15 @@ export class AuthenticationService {
     }
 
     logout() {
+        let headers = new HttpHeaders();
+        let token = this.currentUserSubject.value.token;
+        headers = headers.set('Content-Type', 'application/json');
+        headers = headers.set('X-LF-TOKEN', token);
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
+        return this.http.post<any>(`http://localhost:8080/account/logout`, {} ,{headers : headers})
+            .pipe(map(user => {
+                return user;
+            }));    
     }
 }

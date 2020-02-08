@@ -58,7 +58,7 @@ get f() { return this.loginForm.controls; }
             },
             error => {
                 console.log("Login Failed");
-                this.alertService.error(error);
+                this.alertService.error(error.error.message);
                 this.loading = false;
             });
   }
