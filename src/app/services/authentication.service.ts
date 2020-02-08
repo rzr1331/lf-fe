@@ -31,6 +31,7 @@ export class AuthenticationService {
 
     logout() {
         let headers = new HttpHeaders();
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         let token = this.currentUserSubject.value.token;
         headers = headers.set('Content-Type', 'application/json');
         headers = headers.set('X-LF-TOKEN', token);
