@@ -16,6 +16,7 @@ export class AuthenticationService {
     }
 
     public get currentUserValue(): User {
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         return this.currentUserSubject.value;
     }
     
@@ -23,7 +24,7 @@ export class AuthenticationService {
         return this.http.post<any>(`http://localhost:8080/account/login`, {userName, password})
             .pipe(map(user => {
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
+                // this.currentUserSubject.next(user);
                 return user;
             }));
     }
