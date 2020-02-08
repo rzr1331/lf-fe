@@ -60,7 +60,7 @@ export class HomePageComponent implements OnInit {
             },
             error => {
                 console.log("Submit Failed");
-                this.alertService.error(error);
+                this.alertService.error(error.error.message);
                 this.loading = false;
             });
   }

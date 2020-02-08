@@ -1,6 +1,9 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/home">Home</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark" >
+  <div class="navbar-nav" >
+    <a class="nav-item nav-link" routerLink="/home">Laep Finance</a>
+  </div>
+  <div class="navbar-nav" *ngIf="currentUser">
+      <!-- <a class="nav-item nav-link" routerLink="/home">Home</a> -->
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
 </nav>
@@ -17,7 +20,10 @@
 </div> -->
 
 <div class="container"> 
-  <router-outlet></router-outlet>
+  <div >
+    <alert></alert>
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <!-- <style="opacity:0.8;

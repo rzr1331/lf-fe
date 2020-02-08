@@ -42,7 +42,7 @@ export class DisplayPageComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    console.log("Success")
+                    console.log("Display Succeeded")
                     this.url = data.url;
                     this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
                     // this.router.navigate(['/display']);
